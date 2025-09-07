@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: theme(colors.gray.50);
+    color: theme(colors.gray.900);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: theme(colors.green.600);
+    color: theme(colors.white);
+    font-weight: 500;
+    padding: theme(spacing.3) theme(spacing.6);
+    border-radius: theme(borderRadius.lg);
+    transition: all 0.2s;
+    box-shadow: theme(boxShadow.md);
+  }
+  
+  .btn-primary:hover {
+    background-color: theme(colors.green.700);
+    box-shadow: theme(boxShadow.lg);
+  }
+  
+  .disease-card {
+    border-radius: theme(borderRadius.xl);
+    padding: theme(spacing.6);
+    color: theme(colors.white);
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.3s;
+    box-shadow: theme(boxShadow.lg);
+  }
+  
+  .disease-card:hover {
+    transform: scale(1.05);
+    box-shadow: theme(boxShadow.xl);
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: theme(spacing.2);
+    padding: theme(spacing.4) theme(spacing.2);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .nav-link-active {
+    border-bottom-color: theme(colors.green.600);
+    color: theme(colors.green.600);
+  }
+  
+  .nav-link-inactive {
+    color: theme(colors.gray.600);
+  }
+  
+  .nav-link-inactive:hover {
+    color: theme(colors.green.600);
+  }
+  
+  .stat-card {
+    background-color: theme(colors.white);
+    border-radius: theme(borderRadius.lg);
+    padding: theme(spacing.6);
+    box-shadow: theme(boxShadow.md);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: theme(spacing.4);
+  }
+  
+  .modal-content {
+    background-color: theme(colors.white);
+    border-radius: theme(borderRadius.xl);
+    max-width: 56rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: theme(boxShadow.2xl);
+  }
+}
+
+@layer utilities {
+  .text-gradient-benin {
+    background: linear-gradient(135deg, theme(colors.green.500) 0%, theme(colors.blue.500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-benin {
+    background: linear-gradient(135deg, theme(colors.green.500) 0%, theme(colors.blue.500) 100%);
+  }
+}
