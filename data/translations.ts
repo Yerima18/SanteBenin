@@ -1,5 +1,3 @@
-import { Language } from '@/types';
-
 export const translations = {
   fr: {
     prevention: "Prévention",

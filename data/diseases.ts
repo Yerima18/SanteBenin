@@ -93,6 +93,181 @@ export const diseases: Disease[] = [
       yoruba: "Ìtọ́jú fún gbogbo ènìyàn - Oògùn ọ̀fẹ́"
     },
     subDiseases: ["Filariose", "Onchocercose", "Schistosomiase", "Trachome"]
+  },
+  {
+    id: 3,
+    name: {
+      fr: "VIH/SIDA",
+      fon: "VIH/SIDA",
+      yoruba: "VIH/SIDA"
+    },
+    nameLocal: "VIH/SIDA",
+    priority: "Haute",
+    prevalence: "Inclus dans le plan stratégique 2020-2024",
+    category: "Viral",
+    color: "bg-purple-500",
+    icon: "🎗️",
+    prevention: {
+      fr: [
+        "Utiliser des préservatifs",
+        "Dépistage régulier",
+        "Éviter le partage d'objets tranchants",
+        "Fidélité mutuelle"
+      ],
+      fon: [
+        "Zàn preservatif",
+        "Kpɔn dɔ ɣe sia ɣe",
+        "Mɔ nuku ɖuɖu ɖeka zàn",
+        "Nɔ ɖeka ko"
+      ],
+      yoruba: [
+        "Lo condom",
+        "Ṣe àyẹ̀wò déédéé",
+        "Má pin ohun gígé",
+        "Jẹ́ òtítọ́"
+      ]
+    },
+    symptoms: {
+      fr: ["Fatigue persistante", "Perte de poids", "Infections répétées", "Fièvre prolongée"],
+      fon: ["Gbɛgbɛ ɖiɖi", "Kpekpeme ɖiɖi", "Azòn ɖuɖu hoho", "Dzoxoxo didodido"],
+      yoruba: ["Àárẹ̀ títí", "Ìpadánù òsùwọ̀n", "Àrùn lọ́pọ̀lọ́pọ̀", "Ibà pípẹ́"]
+    },
+    treatment: {
+      fr: "Dépistage gratuit - Traitement antirétroviral disponible",
+      fon: "Dɔ kpɔkpɔ ko wɛ fɛ̀ɛ o - Amatɛn li",
+      yoruba: "Àyẹ̀wò ọ̀fẹ́ - Ìtọ́jú wà"
+    }
+  },
+  {
+    id: 4,
+    name: {
+      fr: "Tuberculose",
+      fon: "Fɛmɛ azòn kpikpa",
+      yoruba: "Èémú ẹ̀dọ̀fóró"
+    },
+    nameLocal: "Fɛmɛ azòn kpikpa (Fon)",
+    priority: "Haute",
+    prevalence: "3ème maladie prioritaire de santé publique",
+    category: "Bactérienne",
+    color: "bg-green-500",
+    icon: "🫁",
+    prevention: {
+      fr: [
+        "Éviter les espaces confinés mal aérés",
+        "Porter un masque en cas de toux",
+        "Améliorer la ventilation des habitations",
+        "Dépistage précoce"
+      ],
+      fon: [
+        "Mɔ tekun kpevi siwo me yakatɔn ma ɖi o",
+        "Ɖo mask ne su le ɖuɖum",
+        "Na yakatɔn ɖi xwegbe me nyuie", 
+        "Kpɔn dɔ kaba"
+      ],
+      yoruba: [
+        "Má sí àyè tí kò ní afẹ́fẹ́",
+        "Wọ ibòjú nígbà íkọ",
+        "Jẹ́ kí afẹ́fẹ́ wọ ilé dáadáa",
+        "Ṣe àyẹ̀wò ní kùtùkùtù"
+      ]
+    },
+    symptoms: {
+      fr: ["Toux persistante avec crachats", "Fièvre nocturne", "Perte de poids", "Sueurs nocturnes"],
+      fon: ["Su ɖiɖi kple tukpa", "Dzoxoxo le zã me", "Kpekpeme ɖiɖi", "Fi le zã me"],
+      yoruba: ["Íkọ títí pẹ̀lú itọ́", "Ibà alẹ́", "Ìpadánù òsùwọ̀n", "Òórùn alẹ́"]
+    },
+    treatment: {
+      fr: "Traitement antibiotique gratuit - 6 mois minimum",
+      fon: "Amatɛn antibiotic ko wɛ fɛ̀ɛ o - Ɔsun ade gbeɖe",
+      yoruba: "Ìtọ́jú àbájáde ọ̀fẹ́ - Oṣù mẹ́fà ó kéré"
+    }
+  },
+  {
+    id: 5,
+    name: {
+      fr: "Choléra",
+      fon: "Kolera",
+      yoruba: "Kólérà"
+    },
+    nameLocal: "Kolera (Fon/Yoruba)",
+    priority: "Haute",
+    prevalence: "Épidémies presque chaque année (2013-2022)",
+    category: "Bactérienne",
+    color: "bg-cyan-500",
+    icon: "💧",
+    prevention: {
+      fr: [
+        "Boire uniquement de l'eau potable ou bouillie",
+        "Se laver les mains fréquemment",
+        "Éviter les aliments crus ou mal cuits",
+        "Utiliser des latrines propres"
+      ],
+      fon: [
+        "No tsi nyuie alo tsi siwo ɖa ɖeko",
+        "Klɔ asi hoho",
+        "Mɔ nu yovo alo nu siwo me ɖa nyuie o",
+        "Zàn ahɔ̀ɖefi nyuie lɛ"
+      ],
+      yoruba: [
+        "Mu omi mímọ́ tàbí omi sísè nìkan",
+        "Wẹ ọwọ́ lọ́pọ̀lọ́pọ̀",
+        "Má jẹ oúnje tútù tàbí àìdára",
+        "Lo ilé ìgbòkègbodò mímọ́"
+      ]
+    },
+    symptoms: {
+      fr: ["Diarrhée aqueuse abondante", "Vomissements", "Déshydratation rapide", "Crampes musculaires"],
+      fon: ["Bɔtó tsi gbɛtɔ", "Ludu ɖuɖu", "Tsi ɖi le ɖokuime kaba", "Ɖa lɛkplɔn veve"],
+      yoruba: ["Ìgbàgbé omi púpọ̀", "Èpò pípe", "Omi ara pípẹ́ kíákíá", "Iṣan fífọ́"]
+    },
+    treatment: {
+      fr: "Réhydratation orale urgente - Hospitalisation si sévère",
+      fon: "Na tsi ɖokuime kaba - Yi alɔ̀kpɔgbe ne egbɔna ɖe edzi",
+      yoruba: "Àtúnmu omi ara kíákíá - Sí ilé ìwòsàn bí ó bá burú"
+    }
+  },
+  {
+    id: 6,
+    name: {
+      fr: "Rougeole",
+      fon: "Gbɔ̀dó",
+      yoruba: "Ẹlẹgbẹ"
+    },
+    nameLocal: "Gbɔ̀dó (Fon) / Ẹlẹgbẹ (Yoruba)",
+    priority: "Moyenne",
+    prevalence: "Campagne de vaccination 2024",
+    category: "Viral",
+    color: "bg-pink-500",
+    icon: "🤒",
+    prevention: {
+      fr: [
+        "Vaccination obligatoire des enfants",
+        "Éviter le contact avec les malades",
+        "Renforcer l'immunité générale",
+        "Respecter le calendrier vaccinal"
+      ],
+      fon: [
+        "Ɖa atike na vi lɛ", 
+        "Mɔ azɔnto lɛ",
+        "Na ɖokuikpɔ lɛ sɔ gbɔ",
+        "Wɔ atike ɖuɖu ɣe nyuie"
+      ],
+      yoruba: [
+        "Gba àbẹ̀rẹ́ fún àwọn ọmọdé",
+        "Má bá aláìsàn dé",
+        "Mú ara le lápapọ̀",
+        "Tẹ̀lé àkókò àbẹ̀rẹ́"
+      ]
+    },
+    symptoms: {
+      fr: ["Éruption cutanée rouge", "Fièvre élevée", "Toux sèche", "Conjonctivite"],
+      fon: ["Awuawu bibi ɖo ɖumedeme", "Dzoxoxo gã", "Su ɖuɖu", "Nku bibi"],
+      yoruba: ["Ẹ̀gbà pupa lára", "Ibà gíga", "Íkọ gbígbẹ́", "Ojú dídùn"]
+    },
+    treatment: {
+      fr: "Vaccination préventive gratuite - Soins symptomatiques",
+      fon: "Atike na gbã ko wɛ fɛ̀ɛ o - Amatɛn na",
+      yoruba: "Àbẹ̀rẹ́ àkọ́kọ́ ọ̀fẹ́ - Ìtọ́jú àwọn àmì"
+    }
   }
-  // ... On ajoutera les 4 autres maladies après
 ];
