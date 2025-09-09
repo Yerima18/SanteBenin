@@ -1,5 +1,5 @@
 'use client';
-import { MapPin, Loader2 } from 'lucide-react';
+import { MapPin, Loader2, AlertCircle } from 'lucide-react';
 import { UserLocation } from '@/types';
 
 interface LocationButtonProps {
@@ -9,50 +9,57 @@ interface LocationButtonProps {
   onClick: () => void;
 }
 
-export default function LocationButton({ 
-  userLocation, 
-  loading, 
-  error, 
-  onClick 
-}: LocationButtonProps) {
+export default function LocationButton({ userLocation, loading, error, onClick }: LocationButtonProps) {
   return (
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h3 className="font-semibold text-blue-800">
-            Trouvez les centres les plus proches de vous
+        <div className="flex-1">
+          <h3 className="font-semibold text-blue-800 text-lg mb-2">
+            🗺️ Trouvez les centres les plus proches de vous
           </h3>
-          <p className="text-blue-600 text-sm mt-1">
-            {loading && "Localisation en cours..."}
-            {error && error}
-            {userLocation && !loading && 
-              `Position détectée: ${userLocation.lat.toFixed(4)}°, ${userLocation.lng.toFixed(4)}°`
-            }
-            {!userLocation && !loading && !error && 
-              "Cliquez pour activer la géolocalisation"
-            }
-          </p>
+          <div className="text-blue-600 text-sm">
+            {loading && (
+              <div className="flex items-center space-x-2">
+                <Loader2 size={16} className="animate-spin" />
+                <span>Localisation en cours...</span>
+              </div>
+            )}
+            {error && (
+              <div className="flex items-center space-x-2 text-red-600">
+                <AlertCircle size={16} />
+                <span>{error}</span>
+              </div>
+            )}
+            {userLocation && !loading && (
+              <div className="flex items-center space-x-2 text-green-600">
+                <MapPin size={16} />
+                <span>Position détectée</span>
+              </div>
+            )}
+            {!userLocation && !loading && !error && (
+              <span>Cliquez sur "Me localiser" pour trouver les centres près de vous</span>
+            )}
+          </div>
         </div>
         
         <button
           onClick={onClick}
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed ml-4"
         >
           {loading ? (
-            <Loader2 size={18} className="animate-spin" />
+            <>
+              <Loader2 size={18} className="animate-spin" />
+              <span>Localisation...</span>
+            </>
           ) : (
-            <MapPin size={18} />
+            <>
+              <MapPin size={18} />
+              <span>Me localiser</span>
+            </>
           )}
-          <span>{loading ? 'Localisation...' : 'Me localiser'}</span>
         </button>
       </div>
-      
-      {error && (
-        <div className="mt-3 p-2 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
-          {error}
-        </div>
-      )}
     </div>
   );
 }

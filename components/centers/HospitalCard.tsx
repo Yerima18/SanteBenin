@@ -35,27 +35,20 @@ export default function HospitalCard({ hospital }: HospitalCardProps) {
         {hospital.phone}
       </p>
       
-      {/* Spécialités */}
       <div className="mb-4">
         <p className="text-sm font-medium text-gray-700 mb-2">Spécialités:</p>
         <div className="flex flex-wrap gap-1">
-          {hospital.specialties.slice(0, 3).map((specialty, index) => (
-            <span
-              key={index}
-              className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
-            >
+          {hospital.specialties.slice(0, 2).map((specialty, index) => (
+            <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
               {specialty}
             </span>
           ))}
-          {hospital.specialties.length > 3 && (
-            <span className="text-xs text-gray-500">
-              +{hospital.specialties.length - 3} autres
-            </span>
+          {hospital.specialties.length > 2 && (
+            <span className="text-xs text-gray-500">+{hospital.specialties.length - 2}</span>
           )}
         </div>
       </div>
       
-      {/* Bouton d'itinéraire */}
       <button
         onClick={handleGetDirections}
         className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm flex items-center justify-center space-x-2"

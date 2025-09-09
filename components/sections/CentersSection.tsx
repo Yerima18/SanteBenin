@@ -12,7 +12,7 @@ export default function CentersSection() {
   const [nearbyHospitals, setNearbyHospitals] = useState<Hospital[]>([]);
   const [allHospitalsByRegion, setAllHospitalsByRegion] = useState<{[key: string]: Hospital[]}>({});
 
-  // Grouper les hôpitaux par région
+  // Grouper les hôpitaux par région au chargement
   useEffect(() => {
     const grouped = hospitals.reduce((acc, hospital) => {
       const region = hospital.location;
@@ -24,9 +24,15 @@ export default function CentersSection() {
     }, {} as {[key: string]: Hospital[]});
     
     setAllHospitalsByRegion(grouped);
+
+    // Initialiser avec les centres de Cotonou par défaut
+    const cotonouCenters = hospitals
+      .filter(center => center.location === "Cotonou")
+      .map(center => ({ ...center, distance: undefined }));
+    setNearbyHospitals(cotonouCenters);
   }, []);
 
-  // Calculer les hôpitaux les plus proches quand la position change
+  // Recalculer les hôpitaux les plus proches quand la position change
   useEffect(() => {
     if (location) {
       const centersWithDistance = hospitals.map(center => ({
@@ -40,20 +46,25 @@ export default function CentersSection() {
         .slice(0, 6);
         
       setNearbyHospitals(nearby);
-    } else {
-      // Si pas de localisation, montrer les centres de Cotonou par défaut
-      const cotonouCenters = hospitals
-        .filter(center => center.location === "Cotonou")
-        .map(center => ({ ...center, distance: undefined }));
-      setNearbyHospitals(cotonouCenters);
     }
   }, [location]);
 
+  // Lancer la géolocalisation automatiquement au chargement
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
+
   return (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-gray-800">Centres de Santé au Bénin</h2>
+    <div className="space-y-8">
+      <div className="text-center">
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">🏥 Centres de Santé au Bénin</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Trouvez rapidement les centres de santé les plus proches de vous grâce à la géolocalisation. 
+          Plus de 15 centres répertoriés dans tout le Bénin.
+        </p>
+      </div>
       
-      {/* Géolocalisation */}
+      {/* Bouton de géolocalisation */}
       <LocationButton 
         userLocation={location}
         loading={loading}
@@ -62,40 +73,52 @@ export default function CentersSection() {
       />
 
       {/* Centres les plus proches */}
-      {nearbyHospitals.length > 0 && (
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <span className="text-2xl mr-2">🏥</span>
-            <h3 className="text-xl font-semibold">
+      <div className="bg-white rounded-xl shadow-lg p-8">
+        <div className="flex items-center mb-6">
+          <span className="text-3xl mr-3">📍</span>
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800">
               {location ? 
                 "Centres les plus proches de vous" : 
-                "Centres de santé recommandés"
+                "Centres de santé recommandés (Cotonou)"
               }
             </h3>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {nearbyHospitals.map((hospital) => (
-              <HospitalCard key={hospital.id} hospital={hospital} />
-            ))}
+            {location && (
+              <p className="text-green-600 text-sm mt-1">
+                Triés par distance depuis votre position
+              </p>
+            )}
           </div>
         </div>
-      )}
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {nearbyHospitals.map((hospital) => (
+            <HospitalCard key={hospital.id} hospital={hospital} />
+          ))}
+        </div>
+      </div>
 
       {/* Tous les centres par région */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold mb-6 flex items-center">
-          <span className="text-2xl mr-2">📍</span>
-          Tous les centres de santé par région
-        </h3>
+      <div className="bg-white rounded-xl shadow-lg p-8">
+        <div className="flex items-center mb-6">
+          <span className="text-3xl mr-3">🗺️</span>
+          <h3 className="text-2xl font-bold text-gray-800">
+            Tous les centres par région
+          </h3>
+        </div>
         
-        <div className="space-y-8">
+        <div className="space-y-10">
           {Object.entries(allHospitalsByRegion).map(([region, regionHospitals]) => (
             <div key={region}>
-              <h4 className="font-semibold text-lg text-gray-800 mb-4 border-b pb-2">
-                {region} ({regionHospitals.length} centres)
-              </h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="flex items-center mb-6">
+                <h4 className="text-xl font-bold text-gray-800 border-b-2 border-blue-500 pb-1">
+                  📍 {region}
+                </h4>
+                <span className="ml-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  {regionHospitals.length} centres
+                </span>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regionHospitals.map((hospital) => (
                   <HospitalCard key={hospital.id} hospital={hospital} />
                 ))}
@@ -106,32 +129,52 @@ export default function CentersSection() {
       </div>
 
       {/* Services d'urgence */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-        <h3 className="font-semibold text-red-800 mb-4 flex items-center">
-          <span className="text-2xl mr-2">🚨</span>
-          Services d'Urgence - Bénin
-        </h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 className="font-medium text-red-700 mb-2">Numéros d'urgence:</h4>
-            <div className="space-y-1 text-red-600">
-              <p><strong>166</strong> - Urgences médicales (gratuit)</p>
-              <p><strong>117</strong> - Police secours</p>
-              <p><strong>118</strong> - Pompiers</p>
+      <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-8">
+        <div className="text-center mb-6">
+          <h3 className="text-2xl font-bold text-red-800 flex items-center justify-center">
+            <span className="text-3xl mr-3">🚨</span>
+            Services d'Urgence - République du Bénin
+          </h3>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h4 className="font-bold text-red-700 mb-4 text-lg">📞 Numéros d'urgence</h4>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between p-3 bg-red-50 rounded">
+                <span className="font-medium">🏥 Urgences médicales</span>
+                <span className="text-red-600 font-bold text-lg">166</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-blue-50 rounded">
+                <span className="font-medium">👮 Police secours</span>
+                <span className="text-blue-600 font-bold text-lg">117</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-orange-50 rounded">
+                <span className="font-medium">🚒 Pompiers</span>
+                <span className="text-orange-600 font-bold text-lg">118</span>
+              </div>
             </div>
           </div>
-          <div>
-            <h4 className="font-medium text-red-700 mb-2">SAMU Bénin:</h4>
-            <div className="space-y-1 text-red-600">
-              <p><strong>+229 95 56 56 56</strong> - Service mobile d'urgence</p>
-              <p><strong>Disponible 24h/24</strong></p>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h4 className="font-bold text-red-700 mb-4 text-lg">🚑 SAMU Bénin</h4>
+            <div className="space-y-3">
+              <div className="p-3 bg-green-50 rounded">
+                <p className="font-medium text-green-700">Service Mobile d'Urgence</p>
+                <p className="text-green-600 font-bold text-lg">+229 95 56 56 56</p>
+              </div>
+              <div className="p-3 bg-blue-50 rounded">
+                <p className="font-medium text-blue-700">Disponibilité</p>
+                <p className="text-blue-600 font-bold">24h/24 - 7j/7</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-4 p-3 bg-red-100 rounded-lg">
-          <p className="text-red-800 text-sm">
-            <strong>⚠️ Important:</strong> En cas d'urgence vitale, appelez immédiatement le 166. 
-            Ce service est gratuit depuis tous les opérateurs téléphoniques du Bénin.
+        
+        <div className="mt-6 p-4 bg-red-100 border border-red-300 rounded-lg">
+          <p className="text-red-800 text-center">
+            <strong>⚠️ IMPORTANT:</strong> En cas d'urgence vitale, appelez immédiatement le <strong>166</strong>. 
+            Ce service est <strong>gratuit</strong> depuis tous les opérateurs téléphoniques du Bénin.
           </p>
         </div>
       </div>

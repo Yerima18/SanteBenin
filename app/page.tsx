@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Navigation from '@/components/layout/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
-import CentersSection from '@/components/sections/CentersSection'; // ← Cette ligne doit être présente
+import CentersSection from '@/components/sections/CentersSection';
 import DiseaseCard from '@/components/disease/DiseaseCard';
 import DiseaseModal from '@/components/disease/DiseaseModal';
 import { useLanguage } from '@/hooks/useLanguage';
 import { diseases } from '@/data/diseases';
 import { Disease } from '@/types';
+import VaccinationSection from '@/components/sections/VaccinationSection';
+import NewsSection from '@/components/sections/NewsSection';
 
 export default function HomePage() {
   const { language, changeLanguage } = useLanguage();
@@ -37,11 +39,11 @@ export default function HomePage() {
       />
       
       <main className="container mx-auto px-4 py-8">
+        {/* PAGE ACCUEIL */}
         {activeTab === 'accueil' && (
           <div className="space-y-8">
             <HeroSection onExploreClick={() => setActiveTab('maladies')} />
             
-            {/* Statistics */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="stat-card">
                 <div className="text-3xl mb-2">🦟</div>
@@ -75,7 +77,6 @@ export default function HomePage() {
               </div>
             </div>
             
-            {/* Notifications */}
             {notifications.length > 0 && (
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <h3 className="font-semibold text-yellow-800 mb-2 flex items-center">
@@ -94,6 +95,7 @@ export default function HomePage() {
           </div>
         )}
 
+        {/* PAGE MALADIES */}
         {activeTab === 'maladies' && (
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-gray-800">
@@ -122,19 +124,19 @@ export default function HomePage() {
             </div>
           </div>
         )}
+
+        {/* PAGE CENTRES DE SANTÉ */}
+        {activeTab === 'centres' && <CentersSection />}
         
-        {/* Autres onglets temporaires */}
-        {activeTab !== 'accueil' && activeTab !== 'maladies' && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-            </h2>
-            <p className="text-gray-600">Cette section sera bientôt disponible.</p>
-          </div>
-        )}
+        {/* PAGE VACCINATION */}
+        {activeTab === 'vaccination' && <VaccinationSection />}    
+        
+
+        {/* PAGE ACTUALITÉS */}
+        {activeTab === 'actualites' && <NewsSection />}       
       </main>
       
-      {/* Modal */}
+      {/* MODAL MALADIE */}
       {selectedDisease && (
         <DiseaseModal
           disease={selectedDisease}
