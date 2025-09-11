@@ -4,12 +4,14 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
+    domains: [],
   },
-  i18n: {
-    locales: ['fr', 'fon', 'yoruba'],
-    defaultLocale: 'fr',
-  },
+  // Optimisations pour la production
+  swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+  // Configuration pour Vercel
+  output: 'standalone'
 }
 
 module.exports = nextConfig
