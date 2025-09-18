@@ -1,29 +1,42 @@
 'use client';
+
 import { X, Shield, Activity, Heart, Globe } from 'lucide-react';
 import { Disease, Language } from '@/types';
 import { translations } from '@/data/translations';
 
+// ----------------------------
+// PROPS INTERFACE
+// ----------------------------
 interface DiseaseModalProps {
-  disease: Disease;
-  language: Language;
-  onLanguageChange: (language: Language) => void;
-  onClose: () => void;
+  disease: Disease;                           // The disease object with full details
+  language: Language;                         // Current selected language
+  onLanguageChange: (language: Language) => void; // Callback for switching language
+  onClose: () => void;                        // Callback to close the modal
 }
 
+// ----------------------------
+// DISEASE MODAL COMPONENT
+// ----------------------------
 export default function DiseaseModal({ 
   disease, 
   language, 
   onLanguageChange, 
   onClose 
 }: DiseaseModalProps) {
+  // Get translated labels for the selected language
   const t = translations[language];
 
   return (
+    // Modal overlay (clicking outside closes the modal)
     <div className="modal-overlay" onClick={onClose}>
+      {/* Modal content (click inside does NOT close modal) */}
       <div className="modal-content" onClick={e => e.stopPropagation()}>
-        {/* Header */}
+        
+        {/* ---------- HEADER ---------- */}
         <div className={`${disease.color} text-white p-6`}>
           <div className="flex items-center justify-between">
+            
+            {/* Left: icon + disease name */}
             <div className="flex items-center space-x-3">
               <span className="text-3xl">{disease.icon}</span>
               <div>
@@ -36,15 +49,16 @@ export default function DiseaseModal({
               </div>
             </div>
             
+            {/* Right: language selector + close button */}
             <div className="flex items-center space-x-4">
-              {/* Language Selector */}
+              {/* Language Dropdown */}
               <div className="flex items-center space-x-2 bg-white text-black px-2 py-1 rounded shadow-sm">
                 <Globe size={16} className="text-gray-600" />
                 <select 
                   value={language} 
                   onChange={(e) => onLanguageChange(e.target.value as Language)}
                   className="bg-transparent text-sm focus:outline-none"
-                  onClick={e => e.stopPropagation()}
+                  onClick={e => e.stopPropagation()} // prevent modal close
                 >
                   <option value="fr">🇫🇷 Français</option>
                   <option value="fon">Fon</option>
@@ -52,6 +66,7 @@ export default function DiseaseModal({
                 </select>
               </div>
               
+              {/* Close Button */}
               <button 
                 onClick={onClose} 
                 className="p-2 hover:bg-white hover:bg-opacity-20 rounded-full transition-colors"
@@ -62,10 +77,13 @@ export default function DiseaseModal({
           </div>
         </div>
         
-        {/* Content */}
+        {/* ---------- BODY CONTENT ---------- */}
         <div className="p-6 space-y-6">
+          
+          {/* Prevention & Symptoms (two columns) */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Prevention */}
+            
+            {/* Prevention Section */}
             <div>
               <h3 className="text-xl font-semibold mb-3 flex items-center">
                 <Shield className="mr-2 text-green-600" size={20} />
@@ -81,7 +99,7 @@ export default function DiseaseModal({
               </ul>
             </div>
             
-            {/* Symptoms */}
+            {/* Symptoms Section */}
             <div>
               <h3 className="text-xl font-semibold mb-3 flex items-center">
                 <Activity className="mr-2 text-orange-600" size={20} />
@@ -98,7 +116,7 @@ export default function DiseaseModal({
             </div>
           </div>
           
-          {/* Treatment */}
+          {/* Treatment Section */}
           <div>
             <h3 className="text-xl font-semibold mb-3 flex items-center">
               <Heart className="mr-2 text-red-600" size={20} />
@@ -109,7 +127,7 @@ export default function DiseaseModal({
             </div>
           </div>
           
-          {/* Statistics */}
+          {/* Statistics (if available) */}
           {disease.statistics && (
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold mb-2 text-blue-800">
@@ -132,7 +150,7 @@ export default function DiseaseModal({
             </div>
           )}
           
-          {/* Sub-diseases */}
+          {/* Sub-diseases (if available) */}
           {disease.subDiseases && (
             <div>
               <h3 className="text-lg font-semibold mb-2">
@@ -151,12 +169,12 @@ export default function DiseaseModal({
             </div>
           )}
 
-          {/* Language indicator */}
+          {/* Language Indicator */}
           <div className="bg-gray-50 p-3 rounded-lg text-center">
             <span className="text-sm text-gray-600">
-              {language === 'fr' && '🇫🇷 Contenu en français'}
-              {language === 'fon' && '🇧🇯 Nukun lɛ le Fongbè me'}
-              {language === 'yoruba' && '🇧🇯 Àkọọ́lẹ̀ ní èdè Yorùbá'}
+              {language === 'fr' && '🇫🇷 Content in French'}
+              {language === 'fon' && '🇧🇯 Content in Fon language'}
+              {language === 'yoruba' && '🇧🇯 Content in Yoruba language'}
             </span>
           </div>
         </div>
