@@ -44,11 +44,26 @@ export default function HomePage() {
           <div className="space-y-8">
             <HeroSection onExploreClick={() => setActiveTab('maladies')} />
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="stat-card">
+                <div className="text-3xl mb-2">🦠</div>
+                <div className="text-2xl font-bold text-red-600">12</div>
+                <div className="text-sm text-gray-600">Maladies prioritaires</div>
+              </div>
               <div className="stat-card">
                 <div className="text-3xl mb-2">🦟</div>
                 <div className="text-2xl font-bold text-red-600">20%</div>
                 <div className="text-sm text-gray-600">Hospitalisations paludisme</div>
+              </div>
+              <div className="stat-card">
+                <div className="text-3xl mb-2">💉</div>
+                <div className="text-2xl font-bold text-green-600">Gratuit</div>
+                <div className="text-sm text-gray-600">Vaccination PEV</div>
+              </div>
+              <div className="stat-card">
+                <div className="text-3xl mb-2">🏥</div>
+                <div className="text-2xl font-bold text-blue-600">15+</div>
+                <div className="text-sm text-gray-600">Centres de santé</div>
               </div>
               <div className="stat-card">
                 <div className="text-3xl mb-2">🪱</div>
@@ -66,14 +81,9 @@ export default function HomePage() {
                 <div className="text-sm text-gray-600">Traitement tuberculose</div>
               </div>
               <div className="stat-card">
-                <div className="text-3xl mb-2">💧</div>
-                <div className="text-2xl font-bold text-cyan-600">Urgent</div>
-                <div className="text-sm text-gray-600">Réhydratation choléra</div>
-              </div>
-              <div className="stat-card">
-                <div className="text-3xl mb-2">🤒</div>
-                <div className="text-2xl font-bold text-pink-600">2024</div>
-                <div className="text-sm text-gray-600">Campagne rougeole</div>
+                <div className="text-3xl mb-2">🧠</div>
+                <div className="text-2xl font-bold text-indigo-600">Saisonnier</div>
+                <div className="text-sm text-gray-600">Épidémies méningite</div>
               </div>
             </div>
             

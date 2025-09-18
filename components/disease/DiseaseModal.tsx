@@ -1,5 +1,5 @@
 'use client';
-import { X, Shield, Activity, Heart } from 'lucide-react';
+import { X, Shield, Activity, Heart, Globe } from 'lucide-react';
 import { Disease, Language } from '@/types';
 import { translations } from '@/data/translations';
 
@@ -38,17 +38,17 @@ export default function DiseaseModal({
             
             <div className="flex items-center space-x-4">
               {/* Language Selector */}
-              <div className="flex items-center space-x-2">
-                <span className="text-sm opacity-75">{t.changeLanguage}:</span>
+              <div className="flex items-center space-x-2 bg-white text-black px-2 py-1 rounded shadow-sm">
+                <Globe size={16} className="text-gray-600" />
                 <select 
                   value={language} 
                   onChange={(e) => onLanguageChange(e.target.value as Language)}
-                  className="bg-white bg-opacity-20 border border-white border-opacity-30 rounded px-2 py-1 text-sm"
+                  className="bg-transparent text-sm focus:outline-none"
                   onClick={e => e.stopPropagation()}
                 >
-                  <option value="fr" className="text-black">Français</option>
-                  <option value="fon" className="text-black">Fon</option>
-                  <option value="yoruba" className="text-black">Yoruba</option>
+                  <option value="fr">🇫🇷 Français</option>
+                  <option value="fon">Fon</option>
+                  <option value="yoruba">Yoruba</option>
                 </select>
               </div>
               

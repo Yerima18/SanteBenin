@@ -269,5 +269,287 @@ export const diseases: Disease[] = [
       fon: "Atike na gbã ko wɛ fɛ̀ɛ o - Amatɛn na",
       yoruba: "Àbẹ̀rẹ́ àkọ́kọ́ ọ̀fẹ́ - Ìtọ́jú àwọn àmì"
     }
+  },
+
+  // Ajoutez ces maladies après les 6 existantes dans diseases.ts
+   {
+    id: 7,
+    name: {
+      fr: "Méningite",
+      fon: "Ta me azòn",
+      yoruba: "Àrùn orí inú"
+    },
+    nameLocal: "Ta me azòn (Fon) / Àrùn orí inú (Yoruba)",
+    priority: "Haute",
+    prevalence: "Épidémies saisonnières (saison sèche)",
+    category: "Bactérienne",
+    color: "bg-indigo-500",
+    icon: "🧠",
+    prevention: {
+      fr: [
+        "Vaccination préventive (méningite A, C, Y, W)",
+        "Éviter les espaces bondés mal aérés",
+        "Renforcer l'immunité générale",
+        "Signaler rapidement les cas suspects"
+      ],
+      fon: [
+        "Ɖa atike na gbã",
+        "Mɔ tekun siwo me amɛ sɔ gbɔ",
+        "Na ɖokuikpɔ sɔ gbɔ",
+        "Ɖo azɔnto lɛ nya kaba"
+      ],
+      yoruba: [
+        "Gba àbẹ̀rẹ́ àkọ́kọ́",
+        "Má sí àyè tí ènìyàn pọ̀ sí",
+        "Mú ara le",
+        "Sọ àwọn aláìsàn fún àwọn dókítà kíákíá"
+      ]
+    },
+    symptoms: {
+      fr: ["Fièvre élevée soudaine", "Maux de tête intenses", "Raideur de la nuque", "Vomissements", "Photophobie"],
+      fon: ["Dzoxoxo gã enumɔ", "Ta veve gbɛtɔ", "Kɔ sesẽ", "Ludu ɖuɖu", "Nukun ma nyɔn keklẽ o"],
+      yoruba: ["Ibà gíga lójijì", "Orí fífọ́ púpọ̀", "Ọrùn líle", "Èpò pípe", "Ojú kò fẹ́ ìmọ́lẹ̀"]
+    },
+    treatment: {
+      fr: "URGENCE MÉDICALE - Hospitalisation immédiate - Antibiotiques IV",
+      fon: "YI DOKITA GBƆ ENUMƆ - Yi alɔ̀kpɔgbe ɖo kaba",
+      yoruba: "ÀJÀLÙ ILERA - Lọ sí ilé ìwòsàn lẹ́sẹ̀kan"
+    },
+    statistics: {
+      affected: "2000+ cas par an en Afrique de l'Ouest",
+      mortality: "Létalité 10-15% si traitement rapide"
+    }
+  },
+  {
+    id: 8,
+    name: {
+      fr: "Fièvre Jaune",
+      fon: "Dzoxoxo yɔyɔ",
+      yoruba: "Ibà pupa"
+    },
+    nameLocal: "Dzoxoxo yɔyɔ (Fon) / Ibà pupa (Yoruba)",
+    priority: "Haute",
+    prevalence: "Endémique - vaccination obligatoire",
+    category: "Viral",
+    color: "bg-yellow-600",
+    icon: "🟡",
+    prevention: {
+      fr: [
+        "Vaccination obligatoire (certificat international)",
+        "Lutte contre les moustiques Aedes",
+        "Éliminer les gîtes larvaires",
+        "Porter des vêtements couvrants"
+      ],
+      fon: [
+        "Ɖa atike na (ehiã na mɔ duta)",
+        "Wu lãgbɛ Aedes lɛ",
+        "Ɖa tsi siwo me lãgbɛ vi lɛ dona ɖo",
+        "Ɖo avɔ siwo tsyɔ ɖokuime blibo la"
+      ],
+      yoruba: [
+        "Gba àbẹ̀rẹ́ tí ó yẹ (pàtàkì fún ìrìnàjò)",
+        "Pa àwọn efọn Aedes",
+        "Pa àwọn ibùgbé efọn run",
+        "Wọ aṣọ tí yóó bo gbogbo ara"
+      ]
+    },
+    symptoms: {
+      fr: ["Fièvre brutale", "Jaunisse (peau et yeux jaunes)", "Vomissements noirs", "Saignements", "Douleurs abdominales"],
+      fon: ["Dzoxoxo sesẽ", "Ɖumedeme kple nku zu yɔyɔ", "Ludu yibo ɖuɖu", "Ʋu dona", "Dɔ me veve"],
+      yoruba: ["Ibà líle", "Pupa (àwọ ara àti ojú)", "Èpò dúdú pípe", "Ẹ̀jẹ̀ jáde", "Inú fífọ́"]
+    },
+    treatment: {
+      fr: "Pas de traitement spécifique - Soins de support - PRÉVENTION PAR VACCINATION",
+      fon: "Amatɛn tɔxɛ aɖeke mɛ - Kpɔ dɔ ɖe edzi ko - ɖA ATIKE NA GBÃ",
+      yoruba: "Kò sí ìtọ́jú pàtó - Àbójútó nìkan - ÀBẸ̀RẸ́ NI KỌKỌ"
+    }
+  },
+  {
+    id: 9,
+    name: {
+      fr: "Dengue",
+      fon: "Dengue",
+      yoruba: "Àrùn Dengue"
+    },
+    nameLocal: "Dengue",
+    priority: "Moyenne",
+    prevalence: "Émergente - cas sporadiques",
+    category: "Viral",
+    color: "bg-red-600",
+    icon: "🌡️",
+    prevention: {
+      fr: [
+        "Éliminer l'eau stagnante (pneus, pots)",
+        "Utiliser des moustiquaires",
+        "Appliquer des répulsifs",
+        "Couvrir les réservoirs d'eau"
+      ],
+      fon: [
+        "Ɖa tsi siwo tɔ ɖi (pneumatic, zekpɔ) ɖa",
+        "Zàn vɔvɔ",
+        "Si amatɛn lãgbɛ ɖo nɔ dzi",
+        "Tsyɔ tsi dzrɛ lɛ nu"
+      ],
+      yoruba: [
+        "Yọ omi dídúró (tires, àwọn ìkòkò)",
+        "Lo àwọ̀n àbòjú efọn",
+        "Fi ohun ìdáàbòbò sára",
+        "Bo àwọn ìkòkò omi"
+      ]
+    },
+    symptoms: {
+      fr: ["Fièvre élevée soudaine", "Douleurs musculaires intenses", "Maux de tête sévères", "Éruptions cutanées", "Saignements"],
+      fon: ["Dzoxoxo gã enumɔ", "Ɖa lɛkplɔn veve gbɛtɔ", "Ta veve sesẽ", "Kpɔn ɖo ɖumedeme", "Ʋu dona"],
+      yoruba: ["Ibà gíga lójijì", "Iṣan fífọ́ púpọ̀", "Orí fífọ́ púpọ̀", "Ẹ̀gbà lára", "Ẹ̀jẹ̀ jáde"]
+    },
+    treatment: {
+      fr: "Pas d'antiviral spécifique - Paracétamol - ÉVITER L'ASPIRINE - Surveillance médicale",
+      fon: "Amatɛn tɔxɛ mɛ - Paracétamol - MƆ ASPIRINE - Dokita nakpɔ ɖe edzi",
+      yoruba: "Kò sí oògùn pàtó - Paracétamol - MÁ LO ASPIRIN - Àbójútó dókítà"
+    }
+  },
+  {
+    id: 10,
+    name: {
+      fr: "Typhoïde",
+      fon: "Typhoid azòn",
+      yoruba: "Àrùn Typhoid"
+    },
+    nameLocal: "Typhoid azòn (Fon)",
+    priority: "Haute",
+    prevalence: "Liée à l'assainissement défaillant",
+    category: "Bactérienne",
+    color: "bg-teal-500",
+    icon: "🦠",
+    prevention: {
+      fr: [
+        "Boire de l'eau bouillie ou en bouteille",
+        "Bien laver et cuire les aliments",
+        "Se laver les mains fréquemment",
+        "Vaccination pour les voyageurs"
+      ],
+      fon: [
+        "No tsi siwo ɖa alo tsi siwo de kpo me",
+        "Klɔ nu ɖuɖu nyuie eye naɖa wo",
+        "Klɔ asi ɣe sia ɣe",
+        "Ɖa atike na mɔzɔla lɛ"
+      ],
+      yoruba: [
+        "Mu omi sísè tàbí omi ìdí",
+        "Fọ oúnje dáadáa kí o sì sè é",
+        "Wẹ ọwọ́ lọ́pọ̀lọ́pọ̀",
+        "Gba àbẹ̀rẹ́ fún àwọn arìnrìn-àjò"
+      ]
+    },
+    symptoms: {
+      fr: ["Fièvre prolongée", "Maux de tête", "Douleurs abdominales", "Diarrhée ou constipation", "Taches rosées sur le tronc"],
+      fon: ["Dzoxoxo didodido", "Ta veve", "Dɔ me veve", "Bɔtó alo kuxi sesẽ", "Kpɔn yɔyɔ le ɖokuime"],
+      yoruba: ["Ibà pípẹ́", "Orí fífọ́", "Inú fífọ́", "Ìgbàgbé tàbí àkọ́", "Àmì pupa lára"]
+    },
+    treatment: {
+      fr: "Antibiotiques spécifiques - Réhydratation - Hospitalisation si complications",
+      fon: "Amatɛn antibiotic tɔxɛ - Na tsi ɖokuime - Yi alɔ̀kpɔgbe ne ku ɖo edzi",
+      yoruba: "Oògùn apakòkòrò pàtó - Àtúnmu omi - Sí ilé ìwòsàn bí ó bá burú"
+    }
+  },
+  {
+    id: 11,
+    name: {
+      fr: "Hépatite B",
+      fon: "Hepatit B",
+      yoruba: "Àrùn Hepatitis B"
+    },
+    nameLocal: "Hepatit B",
+    priority: "Haute",
+    prevalence: "8% de la population porteuse chronique",
+    category: "Viral",
+    color: "bg-amber-600",
+    icon: "🟨",
+    prevention: {
+      fr: [
+        "Vaccination (3 doses) - incluse dans PEV",
+        "Éviter le partage d'objets tranchants",
+        "Relations sexuelles protégées",
+        "Stérilisation du matériel médical"
+      ],
+      fon: [
+        "Ɖa atike na (zi etɔ̃) - le PEV me",
+        "Mɔ nuku ɖuɖu ɖeka zàn",
+        "Zàn preservatif",
+        "Na ɖokpo siwo zàna le amatɛn me la nyɔ"
+      ],
+      yoruba: [
+        "Gba àbẹ̀rẹ́ (ìgbà mẹ́ta) - wà nínú PEV",
+        "Má pin ohun gígé",
+        "Lo condom",
+        "Jẹ́ kí ohun èlò dókítà mọ́"
+      ]
+    },
+    symptoms: {
+      fr: ["Fatigue chronique", "Jaunisse", "Douleurs abdominales", "Urine foncée", "Selles décolorées"],
+      fon: ["Gbɛgbɛ ɖiɖi", "Yɔyɔ ɖo ame ŋu", "Dɔ me veve", "Tsi yibo", "Afɔku blibo"],
+      yoruba: ["Àárẹ̀ títí", "Pupa", "Inú fífọ́", "Ìtọ́ dúdú", "Ìgbé funfun"]
+    },
+    treatment: {
+      fr: "Forme chronique: antiviraux - Suivi médical régulier - VACCINATION PRÉVENTIVE",
+      fon: "Ne edidi: amatɛn virus tɔxɛ - Dokita nakpɔ ɣe sia ɣe - ɖA ATIKE NA GBÃ",
+      yoruba: "Tí ó bá dì pẹ́: oògùn virus - Àbójútó dókítà - ÀBẸ̀RẸ́ NI KỌKỌ"
+    }
+  },
+  {
+    id: 12,
+    name: {
+      fr: "Tétanos",
+      fon: "Tetanus",
+      yoruba: "Àrùn Tetanus"
+    },
+    nameLocal: "Tetanus",
+    priority: "Haute",
+    prevalence: "Prévention par vaccination DTC",
+    category: "Bactérienne",
+    color: "bg-gray-600",
+    icon: "💀",
+    prevention: {
+      fr: [
+        "Vaccination DTC (enfants) et rappels adultes",
+        "Désinfecter les plaies immédiatement",
+        "Éviter les blessures avec objets rouillés",
+        "Sérum antitétanique si blessure"
+      ],
+      fon: [
+        "Ɖa atike DTC (vi lɛ) kple ametɔ lɛ hã",
+        "Klɔ abi lɛ kple amatɛn enumɔ",
+        "Mɔ nuku siwo ku la gome",
+        "No serum antitetanique ne abi le ameme"
+      ],
+      yoruba: [
+        "Gba àbẹ̀rẹ́ DTC (ọmọdé) àti àgbà",
+        "Wẹ ọgbẹ́ pẹ̀lú oògùn",
+        "Má fi ohun àbàwọ́n pa ara lára",
+        "Lo serum antitetanus bí ara bá ṣá"
+      ]
+    },
+    symptoms: {
+      fr: ["Raideur musculaire progressive", "Spasmes douloureux", "Trismus (mâchoire bloquée)", "Difficultés à avaler", "Spasmes respiratoires"],
+      fon: ["Ɖa lɛkplɔn sesẽ ɖe ɖe", "Ɖa lɛkplɔn ƒo vevee", "Nuɖuɖu ma ŋu o", "Mimi sesẽ", "Gbɛmɛ sesẽ"],
+      yoruba: ["Iṣan líle síwájú sí i", "Iṣan rírú", "Àtẹ̀tè líle", "Ìgbé kòrò", "Ẹ̀mí mímu kòrò"]
+    },
+    treatment: {
+      fr: "URGENCE MÉDICALE - Sérum antitétanique - Soins intensifs - PRÉVENTION PAR VACCINATION",
+      fon: "YI DOKITA GBƆ KABA - Serum antitetanique - Kpɔ dɔ sesẽ - ɖA ATIKE NA GBÃ",
+      yoruba: "ÀJÀLÙ DÓKÍTÀ - Serum antitetanus - Àbójútó gidi - ÀBẸ̀RẸ́ AKỌKỌ"
+    },
+    statistics: {
+      affected: "100% mortalité sans traitement",
+      mortality: "Prévention totale par vaccination"
+    }
   }
 ];
+
+
+
+
+
+
+
+
