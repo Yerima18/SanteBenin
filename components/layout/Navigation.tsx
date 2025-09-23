@@ -9,11 +9,11 @@ interface NavigationProps {
 export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
   // Navigation items (tabs) with their labels and icons
   const navItems = [
-    { id: 'accueil', label: 'Home', icon: Heart },
-    { id: 'maladies', label: 'Diseases', icon: Activity },
-    { id: 'centres', label: 'Health Centers', icon: MapPin },
+    { id: 'accueil', label: 'Accueil', icon: Heart },
+    { id: 'maladies', label: 'Maladies', icon: Activity },
+    { id: 'centres', label: 'Centres de Santé', icon: MapPin },
     { id: 'vaccination', label: 'Vaccination', icon: Shield },
-    { id: 'actualites', label: 'News', icon: Bell }
+    { id: 'actualites', label: 'Actualités', icon: Bell }
   ];
 
   return (

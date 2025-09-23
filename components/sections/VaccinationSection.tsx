@@ -7,7 +7,7 @@ import CampaignCard from '@/components/vaccination/CampaignCard';
 export default function VaccinationSection() {
   return (
     <div className="space-y-8">
-      {/* Header */}
+      {/* ===== Header section ===== */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">💉 Vaccination au Bénin</h2>
         <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -16,7 +16,8 @@ export default function VaccinationSection() {
         </p>
       </div>
 
-      {/* Info importantes */}
+      {/* ===== Key vaccination info (3 cards) ===== */}
+      {/* Highlights: free vaccines, mandatory law, national target coverage */}
       <div className="grid md:grid-cols-3 gap-6">
         <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
           <Gift className="mx-auto text-green-600 mb-3" size={32} />
@@ -43,7 +44,8 @@ export default function VaccinationSection() {
         </div>
       </div>
 
-      {/* Calendrier vaccinal */}
+      {/* ===== Vaccination schedule ===== */}
+      {/* Iterates over vaccinationSchedule array and displays each entry with VaccineCard */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-8">
           <Shield className="text-blue-600 mr-3" size={32} />
@@ -64,7 +66,8 @@ export default function VaccinationSection() {
         </div>
       </div>
 
-      {/* Campagnes actuelles */}
+      {/* ===== Current vaccination campaigns ===== */}
+      {/* Uses CampaignCard to show vaccination initiatives in 2024 */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <Users className="text-orange-600 mr-3" size={32} />
@@ -80,7 +83,8 @@ export default function VaccinationSection() {
         </div>
       </div>
 
-      {/* Où se faire vacciner */}
+      {/* ===== Where to get vaccinated ===== */}
+      {/* Two columns: health centers & required documents */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <MapPin className="text-green-600 mr-3" size={32} />
@@ -90,6 +94,7 @@ export default function VaccinationSection() {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
+          {/* Left column: types of public health centers */}
           <div>
             <h4 className="font-bold text-lg text-gray-800 mb-4">Centres de santé publics</h4>
             <div className="space-y-3">
@@ -119,9 +124,11 @@ export default function VaccinationSection() {
             </div>
           </div>
           
+          {/* Right column: required documents */}
           <div>
             <h4 className="font-bold text-lg text-gray-800 mb-4">Documents nécessaires</h4>
             <div className="space-y-3">
+              {/* List of documents */}
               <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="font-medium text-yellow-800 mb-2">📄 À apporter:</p>
                 <ul className="text-yellow-700 text-sm space-y-1">
@@ -131,6 +138,7 @@ export default function VaccinationSection() {
                 </ul>
               </div>
               
+              {/* Important note: vaccination without docs is still possible */}
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
                 <p className="font-medium text-red-800 flex items-center mb-2">
                   <AlertTriangle size={16} className="mr-1" />
@@ -146,7 +154,8 @@ export default function VaccinationSection() {
         </div>
       </div>
 
-      {/* Contacts utiles */}
+      {/* ===== Useful contacts ===== */}
+      {/* Ministry hotline and PEV program contact */}
       <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-xl p-8">
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold text-gray-800 flex items-center justify-center">
@@ -156,6 +165,7 @@ export default function VaccinationSection() {
         </div>
         
         <div className="grid md:grid-cols-2 gap-6">
+          {/* Hotline info */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h4 className="font-bold text-blue-800 mb-3">📞 Ligne info vaccination</h4>
             <p className="text-blue-600 text-lg font-bold mb-2">166 (gratuit)</p>
@@ -164,6 +174,7 @@ export default function VaccinationSection() {
             </p>
           </div>
           
+          {/* Ministry contact */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h4 className="font-bold text-green-800 mb-3">🏥 Programme Élargi de Vaccination</h4>
             <p className="text-green-600 text-lg font-bold mb-2">+229 21 33 35 87</p>
@@ -173,6 +184,7 @@ export default function VaccinationSection() {
           </div>
         </div>
         
+        {/* Footer reminder */}
         <div className="mt-6 p-4 bg-green-100 border border-green-300 rounded-lg text-center">
           <p className="text-green-800 font-medium">
             💉 <strong>Rappel:</strong> La vaccination sauve des vies ! 

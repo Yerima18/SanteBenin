@@ -2,22 +2,25 @@
 import { Calendar, Syringe, AlertCircle } from 'lucide-react';
 import { VaccineSchedule } from '@/data/vaccination';
 
+// Props attendues pour chaque carte de vaccination
 interface VaccineCardProps {
-  schedule: VaccineSchedule;
-  index: number;
+  schedule: VaccineSchedule; // Objet contenant l’âge, la liste de vaccins et si c’est important
+  index: number;             // Position dans le calendrier (pour le numéro sur la timeline)
 }
 
 export default function VaccineCard({ schedule, index }: VaccineCardProps) {
   return (
+    // Conteneur principal avec une bordure verticale colorée selon l’importance
     <div className={`relative border-l-4 pl-6 pb-8 ${schedule.important ? 'border-red-500' : 'border-blue-500'}`}>
-      {/* Timeline dot */}
+      
+      {/* Timeline dot : numéro sur la ligne */}
       <div className={`absolute -left-3 top-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold ${
         schedule.important ? 'bg-red-500 ring-2 ring-white' : 'bg-blue-500 ring-2 ring-white'
       }`}>
         {index + 1}
       </div>
       
-      {/* Age header */}
+      {/* En-tête : âge et indication si c’est crucial */}
       <div className="flex items-center mb-4">
         <Calendar className="mr-2 text-gray-600" size={20} />
         <h3 className="text-xl font-bold text-gray-800">{schedule.age}</h3>
@@ -29,18 +32,23 @@ export default function VaccineCard({ schedule, index }: VaccineCardProps) {
         )}
       </div>
       
-      {/* Vaccines grid */}
+      {/* Grille des vaccins pour cet âge */}
       <div className="grid md:grid-cols-2 gap-3">
         {schedule.vaccines.map((vaccine, vIndex) => (
           <div 
             key={vIndex} 
             className="bg-white rounded-lg border shadow-sm p-4 hover:shadow-md hover:scale-105 transition-transform"
           >
+            {/* Nom et couleur du vaccin */}
             <div className="flex items-center mb-2">
               <div className={`w-3 h-3 rounded-full ${vaccine.color} mr-2`}></div>
               <h4 className="font-semibold text-gray-800">{vaccine.name}</h4>
             </div>
+            
+            {/* Description courte */}
             <p className="text-sm text-gray-600">{vaccine.description}</p>
+            
+            {/* Indication gratuite */}
             <div className="flex items-center mt-2">
               <Syringe size={14} className="text-green-600 mr-1" />
               <span className="text-xs text-green-600 font-medium">GRATUIT</span>
@@ -49,7 +57,7 @@ export default function VaccineCard({ schedule, index }: VaccineCardProps) {
         ))}
       </div>
       
-      {/* Important warning */}
+      {/* Alerte si ce vaccin est crucial */}
       {schedule.important && (
         <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
           <AlertCircle size={16} className="text-red-600" />

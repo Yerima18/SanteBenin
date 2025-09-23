@@ -1,16 +1,18 @@
 'use client';
+
 import { Newspaper, TrendingUp, Users, MapPin, Phone, Calendar } from 'lucide-react';
 import { newsItems, currentAlerts, healthStats } from '@/data/news';
 import NewsCard from '@/components/news/NewsCard';
 import AlertCard from '@/components/news/AlertCard';
 
 export default function NewsSection() {
+  // Separate news into two groups: high priority and others
   const priorityNews = newsItems.filter(news => news.priority === 'Haute');
   const otherNews = newsItems.filter(news => news.priority !== 'Haute');
 
   return (
     <div className="space-y-8">
-      {/* Header */}
+      {/* ===== Header section ===== */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">📰 Actualités Santé Bénin</h2>
         <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -19,7 +21,8 @@ export default function NewsSection() {
         </p>
       </div>
 
-      {/* Statistiques rapides */}
+      {/* ===== Quick health statistics cards ===== */}
+      {/* Each card shows a key health indicator for Benin */}
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
           <div className="text-2xl font-bold text-green-600">{healthStats.vaccination_coverage}</div>
@@ -43,7 +46,8 @@ export default function NewsSection() {
         </div>
       </div>
 
-      {/* Alertes actuelles */}
+      {/* ===== Current health alerts ===== */}
+      {/* Uses AlertCard component to display urgent health alerts */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <TrendingUp className="text-red-600 mr-3" size={32} />
@@ -59,7 +63,8 @@ export default function NewsSection() {
         </div>
       </div>
 
-      {/* Actualités prioritaires */}
+      {/* ===== High priority news ===== */}
+      {/* News flagged as "Haute" priority gets special emphasis */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <Newspaper className="text-blue-600 mr-3" size={32} />
@@ -75,7 +80,8 @@ export default function NewsSection() {
         </div>
       </div>
 
-      {/* Autres actualités */}
+      {/* ===== Other news ===== */}
+      {/* All remaining news articles are shown here */}
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <Users className="text-green-600 mr-3" size={32} />
@@ -91,7 +97,8 @@ export default function NewsSection() {
         </div>
       </div>
 
-      {/* Contacts presse et information */}
+      {/* ===== Health contact information ===== */}
+      {/* Provides official contact details for Ministry of Health and citizen platform */}
       <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-xl p-8">
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold text-gray-800 flex items-center justify-center">
@@ -101,6 +108,7 @@ export default function NewsSection() {
         </div>
         
         <div className="grid md:grid-cols-2 gap-6">
+          {/* Ministry of Health press contact */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h4 className="font-bold text-blue-800 mb-3">📞 Communication Ministère Santé</h4>
             <p className="text-blue-600 text-lg font-bold mb-2">+229 21 33 35 87</p>
@@ -110,6 +118,7 @@ export default function NewsSection() {
             </div>
           </div>
           
+          {/* Citizen reporting platform */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h4 className="font-bold text-green-800 mb-3">📱 Plateforme Citoyenne</h4>
             <p className="text-green-600 text-lg font-bold mb-2">166</p>
@@ -120,6 +129,7 @@ export default function NewsSection() {
           </div>
         </div>
 
+        {/* Footer with last update info */}
         <div className="mt-6 p-4 bg-blue-100 border border-blue-300 rounded-lg text-center">
           <p className="text-blue-800">
             <Calendar className="inline mr-2" size={16} />
