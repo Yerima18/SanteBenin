@@ -62,11 +62,9 @@ export default function CentersSection() {
       {/* Section Header */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">
-          🏥 Health Centers in Benin
-        </h2>
+          🏥 Centres de santé au Bénin        </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Quickly find the nearest health centers thanks to geolocation. 
-          Over 15 centers listed across Benin.
+          Trouvez rapidement les centres de santé les plus proches grâce à la géolocalisation. Plus de 15 centres sont répertoriés au Bénin.
         </p>
       </div>
       
@@ -84,11 +82,11 @@ export default function CentersSection() {
           <span className="text-3xl mr-3">📍</span>
           <div>
             <h3 className="text-2xl font-bold text-gray-800">
-              {location ? "Closest centers to you" : "Recommended centers (Cotonou)"}
+              {location ? "Les centres les plus proches de chez vous" : "Recommended centers (Cotonou)"}
             </h3>
             {location && (
               <p className="text-green-600 text-sm mt-1">
-                Sorted by distance from your position
+                Trié par distance par rapport à votre position
               </p>
             )}
           </div>
@@ -107,7 +105,7 @@ export default function CentersSection() {
         <div className="flex items-center mb-6">
           <span className="text-3xl mr-3">🗺️</span>
           <h3 className="text-2xl font-bold text-gray-800">
-            All centers by region
+           Tous les centres par région
           </h3>
         </div>
         
@@ -138,25 +136,25 @@ export default function CentersSection() {
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold text-red-800 flex items-center justify-center">
             <span className="text-3xl mr-3">🚨</span>
-            Emergency Services - Republic of Benin
+              Services d'urgence - République du Bénin  
           </h3>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
           {/* Emergency Numbers */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-bold text-red-700 mb-4 text-lg">📞 Emergency numbers</h4>
+            <h4 className="font-bold text-red-700 mb-4 text-lg">📞 Numéros d'urgence</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-red-50 rounded">
-                <span className="font-medium">🏥 Medical Emergencies</span>
+                <span className="font-medium">🏥 Urgences médicales</span>
                 <span className="text-red-600 font-bold text-lg">166</span>
               </div>
               <div className="flex items-center justify-between p-3 bg-blue-50 rounded">
-                <span className="font-medium">👮 Police Help</span>
+                <span className="font-medium">👮 Aide policière</span>
                 <span className="text-blue-600 font-bold text-lg">117</span>
               </div>
               <div className="flex items-center justify-between p-3 bg-orange-50 rounded">
-                <span className="font-medium">🚒 Firefighters</span>
+                <span className="font-medium">🚒 Pompiers</span>
                 <span className="text-orange-600 font-bold text-lg">118</span>
               </div>
             </div>
@@ -167,11 +165,11 @@ export default function CentersSection() {
             <h4 className="font-bold text-red-700 mb-4 text-lg">🚑 SAMU Benin</h4>
             <div className="space-y-3">
               <div className="p-3 bg-green-50 rounded">
-                <p className="font-medium text-green-700">Emergency Mobile Service</p>
+                <p className="font-medium text-green-700">Service mobile d'urgence</p>
                 <p className="text-green-600 font-bold text-lg">+229 95 56 56 56</p>
               </div>
               <div className="p-3 bg-blue-50 rounded">
-                <p className="font-medium text-blue-700">Availability</p>
+                <p className="font-medium text-blue-700">Disponibilité</p>
                 <p className="text-blue-600 font-bold">24/7</p>
               </div>
             </div>
@@ -181,8 +179,8 @@ export default function CentersSection() {
         {/* Important Note */}
         <div className="mt-6 p-4 bg-red-100 border border-red-300 rounded-lg">
           <p className="text-red-800 text-center">
-            <strong>⚠️ IMPORTANT:</strong> In case of a life-threatening emergency, call <strong>166</strong> immediately. 
-            This service is <strong>free</strong> from all operators in Benin.
+            <strong>⚠️ IMPORTANT :</strong> En cas d’urgence vitale, appelez le <strong>166</strong> immédiatement. 
+            Ce service est <strong>gratuit</strong> depuis tous les opérateurs au Bénin.
           </p>
         </div>
       </div>
