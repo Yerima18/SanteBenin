@@ -1,0 +1,126 @@
+
+import React from 'react';
+import { VACCINATION_SCHEDULE } from '../constants';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
+const Vaccination: React.FC = () => {
+  const ref = useScrollReveal();
+
+  return (
+    <div ref={ref} className="max-w-7xl mx-auto px-4 py-12 animate-fade-in">
+      <div className="mb-16 text-center max-w-3xl mx-auto">
+        <h1 className="animate-slide-up text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">Vaccination : Protéger l'Avenir</h1>
+        <p className="animate-slide-up delay-1 text-lg text-slate-600">
+          Le Programme Élargi de Vaccination (PEV) du Bénin sauve des milliers de vies chaque année. Restez à jour avec le calendrier 2026.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+        <div className="lg:col-span-2 scroll-reveal-left">
+          <h2 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+            <span className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">📅</span>
+            Calendrier Vaccinal de Routine (PEV)
+          </h2>
+          <div className="bg-white rounded-3xl sm:rounded-[32px] border border-slate-200 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead className="bg-slate-50 border-b border-slate-200">
+                  <tr>
+                    <th className="px-4 sm:px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Âge de l'enfant</th>
+                    <th className="px-4 sm:px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Vaccins obligatoires</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {VACCINATION_SCHEDULE.map((item, idx) => (
+                    <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                      <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900">{item.age}</td>
+                      <td className="px-4 sm:px-6 py-4 text-sm text-slate-600">{item.vaccines}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="p-4 bg-blue-50 text-[11px] text-blue-800 text-center italic">
+              Note : En 2026, le carnet de vaccination physique est couplé au code QR "SanteDigital Benin".
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-8">
+          <div className="scroll-reveal-right bg-green-600 rounded-3xl sm:rounded-[32px] p-8 text-white shadow-lg shadow-green-100 relative overflow-hidden">
+            <h3 className="text-xl font-black mb-4 relative z-10">Flash Info 2026</h3>
+            <p className="text-green-50 text-sm leading-relaxed mb-6 relative z-10">
+              Le Bénin a franchi une étape historique : Le vaccin antipaludique **R21/Matrix-M** est désormais intégré dans toutes les zones sanitaires.
+            </p>
+            <div className="relative z-10 flex flex-col gap-2">
+              <span className="text-[10px] font-bold bg-white/20 px-2 py-1 rounded inline-block w-max italic">Protection efficace à 75%</span>
+              <span className="text-[10px] font-bold bg-white/20 px-2 py-1 rounded inline-block w-max italic">Gratuit pour tous les nourrissons</span>
+            </div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+          </div>
+
+          <div className="scroll-reveal-right bg-white rounded-3xl sm:rounded-[32px] border border-slate-200 p-8 shadow-sm">
+            <h3 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Conseils aux parents</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] mt-0.5 shrink-0">1</div>
+                <p className="text-xs text-slate-600">N'attendez pas que l'enfant soit malade pour le faire vacciner.</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] mt-0.5 shrink-0">2</div>
+                <p className="text-xs text-slate-600">Apportez toujours le carnet de santé lors de vos visites au centre.</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] mt-0.5 shrink-0">3</div>
+                <p className="text-xs text-slate-600">Une légère fièvre après le vaccin est normale et montre que le corps réagit.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="scroll-reveal-scale bg-slate-900 rounded-3xl sm:rounded-[40px] p-6 sm:p-8 md:p-16 text-white mb-20">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-center">Combattre la désinformation</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/10">
+            <span className="text-red-400 font-bold text-xs uppercase mb-2 block">Mythe courant</span>
+            <p className="italic text-base sm:text-lg mb-4 text-slate-100 leading-relaxed">"Les vaccins sont un moyen de contrôler la population."</p>
+            <div className="h-px bg-white/10 my-6"></div>
+            <span className="text-green-400 font-bold text-xs uppercase mb-2 block">La vérité scientifique</span>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Les vaccins sont rigoureusement testés par des instances internationales (OMS) et locales. Ils n'ont qu'un seul but : apprendre au système immunitaire à reconnaître et combattre les virus.
+            </p>
+          </div>
+          <div className="bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/10">
+            <span className="text-red-400 font-bold text-xs uppercase mb-2 block">Mythe courant</span>
+            <p className="italic text-base sm:text-lg mb-4 text-slate-100 leading-relaxed">"Trop de vaccins affaiblissent le système de l'enfant."</p>
+            <div className="h-px bg-white/10 my-6"></div>
+            <span className="text-green-400 font-bold text-xs uppercase mb-2 block">La vérité scientifique</span>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Le système immunitaire d'un nouveau-né est capable de répondre à des milliers d'antigènes à la fois. Les vaccins ne représentent qu'une infime fraction de ce qu'il combat naturellement chaque jour.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="scroll-reveal max-w-3xl mx-auto text-center">
+        <h3 className="text-2xl font-bold text-slate-800 mb-6">Où se faire vacciner ?</h3>
+        <p className="text-slate-600 mb-8 leading-relaxed">
+          Tous les centres de santé publics (Arrondissements et Communes) du Bénin disposent d'unités PEV ouvertes tous les matins. La vaccination de routine est 100% gratuite.
+        </p>
+        <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 text-blue-700 rounded-2xl font-bold">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+          </svg>
+          Trouver le centre le plus proche via le 136
+        </div>
+      </div>
+
+      <div className="mt-20 p-8 border-t border-slate-200 text-center text-[10px] text-slate-400 italic">
+        Avertissement Médical : Ce calendrier est conforme aux directives 2026 de l'OMS et du Ministère de la Santé du Bénin. Toujours consulter le carnet de santé de l'enfant.
+      </div>
+    </div>
+  );
+};
+
+export default Vaccination;
