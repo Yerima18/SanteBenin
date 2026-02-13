@@ -1,0 +1,7 @@
+{
+  "name": "SanteBenin 2026",
+  "description": "A modern, professional public health awareness platform for Benin, focusing on disease prevention, vaccination, and health education updated for 2026 standards.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
