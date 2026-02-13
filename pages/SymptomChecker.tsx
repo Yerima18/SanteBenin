@@ -1,17 +1,5 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
-const SYSTEM_INSTRUCTION = `Tu es un assistant virtuel de santé publique pour la plateforme SanteBenin.
-Ton rôle est d'informer les citoyens béninois sur les maladies courantes (Paludisme, Dengue, Choléra, etc.).
-RÈGLES CRUCIALES :
-1. Ne donne JAMAIS de prescription médicale ou de dosage.
-2. Ajoute TOUJOURS ce rappel : "Ceci est une information éducative. Consultez un médecin au centre de santé le plus proche."
-3. Encourage l'utilisation du numéro d'urgence 136 au Bénin.
-4. Sois empathique, clair et utilise un langage simple accessible à tous.
-5. Si les symptômes semblent graves (difficulté respiratoire, inconscience), dis à l'utilisateur d'appeler immédiatement le 187 (SAMU).`;
 
 interface Message {
   role: 'user' | 'ai';
@@ -40,21 +28,16 @@ const SymptomChecker: React.FC = () => {
     setLoading(true);
 
     try {
-      const conversationHistory = updatedMessages.map(m => ({
-        role: m.role === 'user' ? 'user' : 'model',
-        parts: [{ text: m.text }],
-      }));
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: conversationHistory,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-        },
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: updatedMessages }),
       });
 
-      const aiText = response.text || "Désolé, je ne peux pas répondre pour le moment. Veuillez réessayer.";
-      setMessages(prev => [...prev, { role: 'ai', text: aiText }]);
+      if (!res.ok) throw new Error('API request failed');
+
+      const data = await res.json();
+      setMessages(prev => [...prev, { role: 'ai', text: data.text }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'ai', text: "Une erreur est survenue. Veuillez consulter un médecin directement." }]);
     } finally {
