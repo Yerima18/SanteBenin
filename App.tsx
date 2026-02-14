@@ -8,7 +8,6 @@ import DiseaseDetail from './pages/DiseaseDetail';
 import Prevention from './pages/Prevention';
 import Emergency from './pages/Emergency';
 import Vaccination from './pages/Vaccination';
-import SymptomChecker from './pages/SymptomChecker';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -21,7 +20,6 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/maladies" element={<Diseases />} />
           <Route path="/maladies/:slug" element={<DiseaseDetail />} />
-          <Route path="/assistant" element={<SymptomChecker />} />
           <Route path="/prevention" element={<Prevention />} />
           <Route path="/urgences" element={<Emergency />} />
           <Route path="/vaccination" element={<Vaccination />} />

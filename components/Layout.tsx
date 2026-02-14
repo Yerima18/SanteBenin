@@ -9,7 +9,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navLinks = [
     { name: 'Accueil', path: '/' },
     { name: 'Maladies', path: '/maladies' },
-    { name: 'Assistant AI', path: '/assistant' },
     { name: 'Prévention', path: '/prevention' },
     { name: 'Vaccination', path: '/vaccination' },
     { name: 'Urgences', path: '/urgences' },
@@ -112,7 +111,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <h4 className="text-white font-semibold mb-4 text-sm uppercase">Navigation</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/maladies" className="hover:text-blue-400 transition-colors">Liste des maladies</Link></li>
-                <li><Link to="/assistant" className="hover:text-blue-400 transition-colors">Assistant Symptômes</Link></li>
                 <li><Link to="/prevention" className="hover:text-blue-400 transition-colors">Conseils de prévention</Link></li>
                 <li><Link to="/vaccination" className="hover:text-blue-400 transition-colors">Calendrier vaccinal</Link></li>
               </ul>
