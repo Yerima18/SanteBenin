@@ -2,10 +2,12 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Diseases from './pages/Diseases';
 import DiseaseDetail from './pages/DiseaseDetail';
 import Prevention from './pages/Prevention';
+import PreventionDetail from './pages/PreventionDetail';
 import Emergency from './pages/Emergency';
 import Vaccination from './pages/Vaccination';
 import About from './pages/About';
@@ -15,12 +17,14 @@ import NotFound from './pages/NotFound';
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/maladies" element={<Diseases />} />
           <Route path="/maladies/:slug" element={<DiseaseDetail />} />
           <Route path="/prevention" element={<Prevention />} />
+          <Route path="/prevention/:id" element={<PreventionDetail />} />
           <Route path="/urgences" element={<Emergency />} />
           <Route path="/vaccination" element={<Vaccination />} />
           <Route path="/a-propos" element={<About />} />

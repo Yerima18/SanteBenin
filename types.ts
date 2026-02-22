@@ -29,6 +29,17 @@ export interface Disease {
   tags: string[];
 }
 
+export interface PreventionSection {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  accent: string;
+  accentLight: string;
+  tips: string[];
+  didYouKnow: string;
+}
+
 export interface Alert {
   id: string;
   type: 'info' | 'warning' | 'error';

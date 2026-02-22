@@ -1,5 +1,5 @@
 
-import { Disease, Category, Alert } from './types';
+import { Disease, Category, Alert, PreventionSection } from './types';
 
 export const DISEASES: Disease[] = [
   {
@@ -15,7 +15,7 @@ export const DISEASES: Disease[] = [
       'Éliminer les eaux stagnantes autour de la maison',
       'Porter des vêtements couvrants le soir',
       'Utilisation de répulsifs cutanés',
-      'Vaccination R21/Matrix-M pour les enfants (disponible en 2026)'
+      'Vaccination R21/Matrix-M : 4 doses pour les enfants à partir de 5 mois (schéma OMS)'
     ],
     whenToSeekHelp: 'Dès l\'apparition de la fièvre, surtout chez l\'enfant de moins de 5 ans et la femme enceinte.',
     update2026: 'Le Bénin a généralisé le vaccin R21 en 2026, réduisant drastiquement les formes graves chez les nourrissons.',
@@ -256,15 +256,89 @@ export const DISEASES: Disease[] = [
   }
 ];
 
+export const PREVENTION_SECTIONS: PreventionSection[] = [
+  {
+    id: 'hygiene',
+    title: 'Hygiène & Assainissement',
+    description: 'L\'hygiène personnelle et environnementale est le premier rempart contre la majorité des maladies infectieuses au Bénin. Des gestes simples pratiqués quotidiennement peuvent prévenir jusqu\'à 50% des épisodes diarrhéiques.',
+    icon: '🧼',
+    accent: '#008751',
+    accentLight: '#E8F5E9',
+    tips: [
+      'Se laver les mains au savon pendant au moins 20 secondes après passage aux toilettes et avant de manger.',
+      'Traiter l\'eau de boisson en la bouillant, filtrant ou chlorant avant consommation.',
+      'Laver systématiquement les fruits et légumes à l\'eau propre avant de les consommer.',
+      'Gérer correctement les ordures ménagères pour éviter l\'accumulation de mouches.',
+      'Entretenir régulièrement les latrines et fosses septiques.',
+      'Éviter la défécation à l\'air libre, source majeure de contamination des eaux.',
+    ],
+    didYouKnow: 'Le simple lavage des mains au savon peut réduire les maladies diarrhéiques de 40% et les infections respiratoires de 23% selon l\'OMS.',
+  },
+  {
+    id: 'vectors',
+    title: 'Protection Vectorielle',
+    description: 'Les maladies à transmission vectorielle comme le paludisme et la dengue sont parmi les principales causes de mortalité au Bénin. La protection contre les moustiques et autres vecteurs est essentielle toute l\'année.',
+    icon: '🦟',
+    accent: '#D97706',
+    accentLight: '#FEF3C7',
+    tips: [
+      'Dormir chaque nuit sous une moustiquaire imprégnée d\'insecticide longue durée (MILD).',
+      'Éliminer les gîtes larvaires : vider les soucoupes, pots, vieux pneus et tout récipient d\'eau stagnante.',
+      'Installer des grillages ou moustiquaires aux fenêtres et portes.',
+      'Utiliser des répulsifs cutanés le soir, surtout pour les enfants et les femmes enceintes.',
+      'Procéder à la désinsectisation périodique des habitations.',
+      'Porter des vêtements couvrants (manches longues) après le coucher du soleil.',
+    ],
+    didYouKnow: 'Au Bénin, plus de 30% des consultations médicales sont dues au paludisme. Dormir sous moustiquaire réduit ce risque de 50% chez les enfants de moins de 5 ans.',
+  },
+  {
+    id: 'maternal',
+    title: 'Santé Maternelle & Infantile',
+    description: 'La mortalité maternelle et infantile reste un défi majeur au Bénin. Le suivi prénatal régulier et les bonnes pratiques de santé infantile peuvent sauver des dizaines de milliers de vies chaque année.',
+    icon: '🤱',
+    accent: '#E11D48',
+    accentLight: '#FFF1F2',
+    tips: [
+      'Respecter strictement le calendrier vaccinal PEV dès la naissance de l\'enfant.',
+      'Pratiquer l\'allaitement maternel exclusif jusqu\'à 6 mois, puis complémentaire jusqu\'à 2 ans.',
+      'Effectuer au minimum 4 consultations prénatales (CPN) pendant la grossesse.',
+      'Prendre le traitement préventif intermittent (TPI) contre le paludisme pendant la grossesse.',
+      'Accoucher dans un centre de santé avec personnel qualifié.',
+      'Surveiller la croissance de l\'enfant avec les visites de suivi post-natal.',
+    ],
+    didYouKnow: 'Les femmes qui réalisent au moins 4 consultations prénatales réduisent de 40% le risque de complications à l\'accouchement selon le Ministère de la Santé du Bénin.',
+  },
+  {
+    id: 'nutrition',
+    title: 'Nutrition & Alimentation Saine',
+    description: 'Une alimentation équilibrée est fondamentale pour renforcer le système immunitaire et prévenir les maladies chroniques. Le Bénin dispose d\'une grande richesse alimentaire locale à valoriser.',
+    icon: '🥗',
+    accent: '#EA580C',
+    accentLight: '#FFF7ED',
+    tips: [
+      'Consommer des légumes verts à feuilles riches en fer : épinards, feuilles de morelle, feuilles de baobab.',
+      'Diversifier les sources de protéines : poisson frais, légumineuses (niébé, soja), œufs et volaille locale.',
+      'Limiter les aliments ultra-transformés, les bouillons cubes concentrés et les boissons sucrées.',
+      'Assurer 3 repas équilibrés par jour incluant tubercules (igname, manioc), céréales et fruits locaux.',
+      'Allaiter exclusivement les nourrissons jusqu\'à 6 mois pour leur apporter les nutriments essentiels.',
+      'Boire au moins 1,5 à 2 litres d\'eau traitée par jour, davantage en saison chaude.',
+    ],
+    didYouKnow: 'La malnutrition est responsable de près d\'un tiers des décès d\'enfants de moins de 5 ans en Afrique subsaharienne. Les aliments locaux comme la morelle et le niébé sont pourtant très riches en nutriments essentiels.',
+  },
+];
+
 export const VACCINATION_SCHEDULE = [
-  { age: 'Naissance', vaccines: 'BCG (Tuberculose), VPO-0 (Polio)' },
+  { age: 'Naissance (< 48h)', vaccines: 'BCG (Tuberculose), VPO-0 (Polio), Hépatite B (Euvax – dans les 24-48h)' },
   { age: '6 Semaines', vaccines: 'PENTA-1, VPO-1, PCV-13-1, ROTASIIL-1' },
   { age: '10 Semaines', vaccines: 'PENTA-2, VPO-2, PCV-13-2, ROTASIIL-2' },
   { age: '14 Semaines', vaccines: 'PENTA-3, VPO-3, VPI, PCV-13-3, ROTASIIL-3' },
-  { age: '6 Mois', vaccines: 'Vitamine A, Vaccin Antipaludique (R21) - Dose 1' },
-  { age: '9 Mois', vaccines: 'RR-1 (Rougeole-Rubéole), VAA (Fièvre Jaune), Antipaludique Dose 2' },
-  { age: '15 Mois', vaccines: 'RR-2 (Rougeole-Rubéole), Antipaludique Dose 3' },
-  { age: '9-14 Ans', vaccines: 'VPH (Virus du Papillome Humain) - Pour les filles' }
+  { age: '5 Mois', vaccines: 'Vaccin Antipaludique R21 – Dose 1' },
+  { age: '6 Mois', vaccines: 'Vitamine A, Vaccin Antipaludique R21 – Dose 2' },
+  { age: '7 Mois', vaccines: 'Vaccin Antipaludique R21 – Dose 3' },
+  { age: '9 Mois', vaccines: 'RR-1 (Rougeole-Rubéole), VAA (Fièvre Jaune)' },
+  { age: '15 Mois', vaccines: 'RR-2 (Rougeole-Rubéole)' },
+  { age: '21 Mois', vaccines: 'Vaccin Antipaludique R21 – Dose 4 (Rappel)' },
+  { age: '9-14 Ans', vaccines: 'VPH (Virus du Papillome Humain) – Pour les filles' }
 ];
 
 export const ALERTS: Alert[] = [
@@ -285,7 +359,7 @@ export const ALERTS: Alert[] = [
 ];
 
 export const EMERGENCY_NUMBERS = [
-  { label: 'SAMU (Urgences Médicales)', number: '187' },
+  { label: 'SAMU Cotonou', number: '51 04 00 00' },
   { label: 'Sapeurs-Pompiers', number: '118' },
   { label: 'Police Secours', number: '117' },
   { label: 'Ligne Verte Santé', number: '136' }
