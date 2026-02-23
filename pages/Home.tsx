@@ -5,9 +5,11 @@ import { DISEASES, ALERTS, EMERGENCY_NUMBERS } from '../constants';
 import DiseaseCard from '../components/DiseaseCard';
 import BeninFlag from '../components/BeninFlag';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useNews } from '../hooks/useNews';
 
 const Home: React.FC = () => {
   const ref = useScrollReveal();
+  const { articles, loading: newsLoading } = useNews(3);
 
   return (
     <div ref={ref} className="animate-fade-in">
@@ -189,6 +191,69 @@ const Home: React.FC = () => {
               <DiseaseCard key={disease.id} disease={disease} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Actualités Santé ───────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 py-16 scroll-reveal">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-800">Actualités Santé</h2>
+            <p className="text-sm text-slate-500 mt-1">Dernières informations de santé publique au Bénin</p>
+          </div>
+          <Link to="/actualites" className="text-[#008751] font-semibold hover:underline text-sm flex items-center gap-1">
+            Tout voir
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {newsLoading
+            ? Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm animate-pulse">
+                  <div className="w-full h-36 bg-slate-200"></div>
+                  <div className="p-4 space-y-2">
+                    <div className="h-3 bg-slate-200 rounded w-1/3"></div>
+                    <div className="h-4 bg-slate-200 rounded w-full"></div>
+                    <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+                  </div>
+                </div>
+              ))
+            : articles.map((article, i) => (
+                <a
+                  key={i}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col"
+                >
+                  {article.image ? (
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  ) : (
+                    <div className="w-full h-36 bg-gradient-to-br from-[#E8F5E9] to-[#008751]/10 flex items-center justify-center text-3xl">📰</div>
+                  )}
+                  <div className="p-4 flex flex-col flex-1">
+                    <span className="text-[10px] font-bold text-[#008751] uppercase tracking-wider mb-1">{article.source.name}</span>
+                    <h3 className="text-sm font-bold text-slate-800 leading-snug line-clamp-3 group-hover:text-[#008751] transition-colors flex-1">
+                      {article.title}
+                    </h3>
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#008751] mt-3">
+                      Lire
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))
+          }
         </div>
       </section>
 

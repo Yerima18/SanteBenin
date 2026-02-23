@@ -13,6 +13,7 @@ import Vaccination from './pages/Vaccination';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Actualites from './pages/Actualites';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
           <Route path="/prevention/:id" element={<PreventionDetail />} />
           <Route path="/urgences" element={<Emergency />} />
           <Route path="/vaccination" element={<Vaccination />} />
+          <Route path="/actualites" element={<Actualites />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

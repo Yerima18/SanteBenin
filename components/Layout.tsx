@@ -15,6 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { name: 'Prévention', path: '/prevention' },
     { name: 'Vaccination', path: '/vaccination' },
     { name: 'Urgences', path: '/urgences' },
+    { name: 'Actualités', path: '/actualites' },
   ];
 
   // Close mobile menu when clicking outside
