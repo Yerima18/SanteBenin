@@ -180,9 +180,21 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
+          <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
             <p>&copy; 2026 SanteBenin. Tous droits réservés.</p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
+            <p className="text-slate-500 text-center">
+              Conçu par <span className="text-slate-300">Lafia Yerima · Mouhammad Amine · Adam Bagri</span>
+              {' — '}
+              <a
+                href="https://github.com/Yerima18"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#4CAF7D] hover:text-white transition-colors"
+              >
+                github.com/Yerima18
+              </a>
+            </p>
+            <div className="flex space-x-4">
               <a href="#" className="hover:text-white">Confidentialité</a>
               <a href="#" className="hover:text-white">Accessibilité</a>
               <a href="#" className="hover:text-white">Mentions légales</a>
