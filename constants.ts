@@ -347,14 +347,14 @@ export const ALERTS: Alert[] = [
     type: 'warning',
     title: 'Vigilance Dengue - Cotonou',
     content: 'Augmentation des cas signalés dans le district sanitaire Cotonou 2. Éliminez vos gîtes larvaires.',
-    date: '20 Mai 2026'
+    date: '20 Fév. 2026'
   },
   {
     id: 'a2',
     type: 'info',
     title: 'Campagne de Vaccination',
     content: 'La campagne nationale de vaccination contre la Polio débute lundi prochain pour les enfants de 0 à 5 ans.',
-    date: '18 Mai 2026'
+    date: '18 Fév. 2026'
   }
 ];
 

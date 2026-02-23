@@ -106,7 +106,7 @@ const Home: React.FC = () => {
             <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl shrink-0">💉</div>
             <div>
               <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Taux de Vaccination PEV</div>
-              <div className="font-bold">89.4% (Mai 2026)</div>
+              <div className="font-bold">89.4% (Fév. 2026)</div>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 mb-20 scroll-reveal">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-slate-800">Alertes Santé Publique</h2>
-          <span className="text-xs font-semibold text-slate-400 uppercase">Mise à jour: Mai 2026</span>
+          <span className="text-xs font-semibold text-slate-400 uppercase">Mise à jour: Fév. 2026</span>
         </div>
         <div className="space-y-4">
           {ALERTS.map(alert => (

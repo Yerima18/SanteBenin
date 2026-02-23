@@ -162,7 +162,7 @@ const DiseaseDetail: React.FC = () => {
           </div>
 
           <div className="mt-12 text-center text-slate-400 text-xs italic">
-            Dernière révision : Janvier 2026 par l'équipe stratégique SanteBenin.
+            Dernière révision : Février 2026 par l'équipe stratégique SanteBenin.
             <br />
             Avertissement : Ce contenu est à titre éducatif uniquement.
           </div>
