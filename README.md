@@ -14,7 +14,6 @@ SanteBenin est une plateforme educative qui fournit des informations fiables sur
 ### Fonctionnalites
 
 - **Catalogue des maladies** — 12 maladies documentees avec symptomes, transmission, prevention et mythes/realites
-- **Assistant IA** — Chatbot sante propulse par l'API Gemini avec garde-fous medicaux
 - **Calendrier vaccinal** — Programme Elargi de Vaccination (PEV) 2026 complet
 - **Guide d'urgence** — Numeros d'urgence et gestes de premier secours
 - **Prevention** — Conseils hygiene, protection vectorielle, sante maternelle
