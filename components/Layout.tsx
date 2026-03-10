@@ -171,7 +171,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/contact" className="hover:text-[#4CAF7D] transition-colors">Nous contacter</Link></li>
                 <li><Link to="/a-propos" className="hover:text-[#4CAF7D] transition-colors">À propos de nous</Link></li>
-                <li><a href="#" className="hover:text-[#4CAF7D] transition-colors">Ministère de la Santé</a></li>
+                <li><a href="https://www.sante.gouv.bj" target="_blank" rel="noopener noreferrer" className="hover:text-[#4CAF7D] transition-colors">Ministère de la Santé ↗</a></li>
                 <li className="flex items-center space-x-2 pt-2">
                   <div className="w-6 h-6 bg-[#25D366] rounded-full flex items-center justify-center text-white text-[10px] font-bold">WA</div>
                   <span className="text-xs">WhatsApp Santé: +229 01 00 00 00</span>
@@ -195,9 +195,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </a>
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">Confidentialité</a>
-              <a href="#" className="hover:text-white">Accessibilité</a>
-              <a href="#" className="hover:text-white">Mentions légales</a>
+              <Link to="/a-propos" className="hover:text-white">À propos</Link>
+              <Link to="/contact" className="hover:text-white">Contact</Link>
             </div>
           </div>
 
