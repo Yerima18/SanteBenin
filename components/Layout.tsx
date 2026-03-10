@@ -174,7 +174,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <li><a href="https://www.sante.gouv.bj" target="_blank" rel="noopener noreferrer" className="hover:text-[#4CAF7D] transition-colors">Ministère de la Santé ↗</a></li>
                 <li className="flex items-center space-x-2 pt-2">
                   <div className="w-6 h-6 bg-[#25D366] rounded-full flex items-center justify-center text-white text-[10px] font-bold">WA</div>
-                  <span className="text-xs">WhatsApp Santé: +229 01 00 00 00</span>
+                  <span className="text-xs">WhatsApp Santé: +229 61 46 40 01</span>
                 </li>
               </ul>
             </div>
@@ -211,7 +211,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       {/* WhatsApp — smaller on mobile, proper safe area */}
       <a
-        href="https://wa.me/22901000000"
+        href="https://wa.me/22961464001"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contacter via WhatsApp"
